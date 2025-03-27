@@ -1,0 +1,691 @@
+JQUERY
+______________________
+
+JavaScript is a programming language for the web, so it
+
+allows you to create dynamic web pages.
+
+HTML is a markup language that lets you define the structure of your site and all the elements inside
+
+it.
+
+Then CSS, you could call a stylesheet language that lets you define the designs for all your elements
+
+on the page.
+
+And then JavaScript really is a programming language where you have all the constructs that make up
+
+a normal programming language, meaning that you can have variables, functions, objects and all that
+
+kind of stuff.
+
+javascript has nothing to do with java.
+
+def:JQuery is fast,small and feauture-ric JavaScript librry.It makes things like HTML document traversal and maniputlation,event handling, animation,
+and Ajax much simpler with an easy-to -use API that works across a multitude of browsers
+with a combination of versatality and extensability, JQuery has changed the way that millions of people with Javascript
+
+other JQuery frameworks:-YUI library one of the popular library but it was discontinued by the 
+YAhoo as there are many frameworks out there.
+
+2.something called the Dojo toolkit, which you can find on Dojo toolkit.org.
+
+Now the Dojo toolkit is really powerful, but also really large.
+
+It can help you with anything you can imagine, basically.
+
+So it comes with a lot of functionality and it can help you with all kinds of tasks, but it's also
+
+a rather complex framework, so it's probably more suitable for experienced web developers or enterprise
+
+developers who really need this kind of large, powerful framework.
+
+3.Mootools, which is a more compact framework, as
+
+it already tells you on the site, and it specializes on effects and animations.
+
+So if you want to have more advanced support for these kinds of visual effects
+
+4.Underscore.js, which also just provides a lot of helpers
+
+for common programming tasks, but it doesn't really include anything for animations or Ajax calls or
+
+something like this.
+
+5.Of course you have AngularJS, you have Ember.js, Backbone.js and so on, many of them with different
+
+purposes, but many also following the same purpose basically.
+
+Advantages:---->
+
+1.It doesn't slow down the loading of your webpages especially with mobiles
+2.makes use of existing knowledge of CSS
+
+
+gihtub for code accessibility:------>
+
+https://github.com/petersommerhoff/jquery-course/tree/master
+
+->we execute JQuery in script.js
+->structure:
+  $(function){
+      //jquery code......    [ jQuery/$]
+    });
+
+eg:$(function){
+  $(".red-box").fadeOut(2000); //default time to fadeout is 400ms .
+                               //we can also use fadeOut(fast/slow);
+                              // fast=200ms and slow =400ms
+					 // to use id we keep("#id-name").faeOut(200);
+});
+
+---------------------------------------------------------
+
+-> to select all the anchor tags in css we use "a.external"
+-> fadeIn() - fades out and fades back in
+-> fadeTo() - fades out first and the fades in to the given opacity
+   syntax: fadeTo(timeinms,opacity)  //fadeTo(1000,0.5) - it's going to first fade out over two seconds,
+                                     // then fade in again and only fade out half.So now it has stopped at 50% opacity.
+->fadeToggle() - if the current element is in fadeIn its going to faeOut and viceversa
+
+NOTE:-
+So the fade out and fade in will also set the display property.
+
+So Fade out will once it is finished, set the display property to none and then the fade in will first
+
+set the display property back to whatever it was before, like block inline block or something like
+
+that, and then begin changing the opacity.
+
+But the fade to function will only change the opacity and not touch the display property at all.
+
+
+TOPIC:Showing and Hiding Elements------------>
+show(): display is set to block and image is displayed 
+hide(): display is set to none and image is hidden
+  syntax: show(time);  or hide(time) or show() or hide();
+ -> When a user is hovering over a product in an online shop.
+
+So similar to Amazon, where when you hover over one of the product images, you're going to get a much
+
+larger view of that image.
+
+So those are the kinds of things where you may want to use the show, hide and toggle functionality,
+
+slideUp() - disappers the image by sliding up
+slideDown() - img appear in a slide down manner
+  syntax:slideUp(timeinms) or slideDown(timeinms)
+slideToggle() - slideup the element if it is shown and vicecersa
+
+TOPIC:Moving Elements------------>
+animate() - this helps to move an object from left to right or viceversa
+syntax:$funtion(){
+   $(.blue-box).animate({
+      //objects
+	"margin-left":"100px", //"+=200px"
+      .....
+	},time//1000, linear); //by default if you don't specify linear it will swing
+});
+
+TOPIC:Custom Animation------>
+$function(){
+  $(".blue-box".animate({
+     marginLeft:"200px",
+	opacity:"0",
+	height:"50px",
+	width:"50px",
+	marginTop:"25px"
+	},1000);
+   $("p").animate({
+ "font-size"-"20px";
+}); 
+
+-> to delay the functions we use delay()
+delay()- to delay a particular function
+syntax: delay(timeinms)
+->chaninig - it means if you call a function followed by another function and so on..
+eg:$(blue-box).delay(1000).fadeTo(1000,0.5);
+
+TOPIC:Timing Animations using Callback function------>
+eg:$(function(){
+	$(."red-box".fadeTo(1000,0,function(){
+	alert("This is the callback:Animation finished.");
+  });
+});   
+
+____________________________________________________________________________
+Using CSS Selectors in JQuery:------------->
+$(function(){
+  $("p").css("background-color","rgba(180,180,30,0.8)"); //it applies all the paragraphs
+  $(input[type='text']").css("background-color","rgba(180,180,30,0.8)"); //it applies to all of type text
+  $("h2,p,input").css("backfound-color",rgba(180,180,30,0.8); //we can also apply a property to multiple selectors at a time
+  $("p:first").css...... // if you want to apply only the first paragraph
+  $("P:even").css... // it applies to all the even numbered paragraphs
+
+});
+_______________________________________________________
+Using JQuery Methods for Traversal:---------->
+$(#list).find("li").css("background-color","rgba(180,180,30,0.8") //finds all listelements;
+$(#list).children("li").css("background-color","rgba(180,180,30,0.8"); //selects only top-level sub-items
+$(#list).parents("body").css("background-color","rgba(180,180,30,0.8"); //selects all the parents,grandparent elements..
+$(#list).parent("").css("background-color","rgba(180,180,30,0.8"); //selects only parent of that element
+$(#list).siblings(":header").css("background-color","rgba(180,180,30,0.8"); //selects only sibling paragraphs
+$(#list).prev("").css("background-color","rgba(180,180,30,0.8"); //selects previous of list
+$(#list).next("").css("background-color","rgba(180,180,30,0.8"); 
+_________________________________________________________________________________________________
+JQuery for Filtering:-------->
+$(funtion(){
+  $("#list").children("li").filter(":even").css("bacckground-color","rgba(180,180,30,0.8");
+  $("li").filter(function(index){
+        return index % 3==0; 
+      }).css("background-color","rgba(180,180,30,0.8)");
+      $("li").eq().css("background-color","rgba(180,180,30,0.8)");
+	$("li").not("first").css("background-color","rgba(180,180,30,0.8)");
+});
+_________________________________________________________________
+DOM:(Document Object in JQuery)---------->
+def -  the document object model really is a tree representation of your site.
+->
+And the HTML dom defines how all the HTML elements are represented as objects so that you can work on
+
+those objects when you refer to them via JavaScript, for example.
+
+So it defines which properties each element has, which event handlers can be applied to which kind
+
+of element.
+
+And so therefore the Dom basically defines the API, the application programming interface for JavaScript.
+
+Meaning that JavaScript knows how it can actually access and manipulate each of those elements.
+-> When the web page is loaded,the browser creates a Document  Object Model of the page.
+->with the object model,js gets all the power it needs to create dynamic HTML
+ .js can change all the HTML elemetns in the page
+ .js can change all the HTML attributes in the page
+ .js can change all the css styles in  the page
+ .js can remove existing html elements and attributes
+ .js can react to all the existing htl events in the page
+ .js can create new html elements in the page
+
+_________________________________________________________________
+TOPIC:- Adding new elements to the DOM
+$(function(){
+ $("ul ul:first").append("<li>I'm gonna be the last sub-item");
+   or
+ $("<li> I'm gonna be the last item</li>").appendTo($("ul ul:first"));
+ $("ul ul:first").prepend("<li>I'm gonna be the last sub-item");
+  $("ul ul").prepend("<li>I'm gonna be the last sub-item");
+  $(".red-box").after("<div class='red-box'>Another Red</div>");
+  $(".red-box").before("<div class='red-box'>Another Red</div>");
+ 
+ //to switch the positions
+ $("p").before($("#list")); 
+
+});
+TOPIC:-Replacing Elements and Content
+$(function(){
+  $("li").replaceWith("<li>Replaced.</li>");  //every element in the list is replaced with "Replaced"
+  $("li").replaceWith(function(){
+   return "<li>Replaced with function.</li>"; //using function
+  });
+var firstListItem=$("li:first");
+$("p").replaceWith(firstListItem);
+$("<div class='green-box'>More Green</div>').replaceAll(".red-box,.blue-box");
+});
+
+TOPIC:Removing of the elements
+$(function(){
+  var removedListItem=$("li").remove();
+  $("form".children().not("input:text,textarea,br").remove();
+  var detachedListItem=$("li").detach(); // there's also a function called detach, which just detaches an
+$("#content").append(detachedListItem);//element from the page, and you can store that element into a variable here.
+$("p":"first").empty(); //Tag here, just as we are still doing is not only going to remove these child elements, the em and
+//span, but also the actual text content inside the paragraph tag itself.But when you open up the developer console,
+//you will be able to see that actually there is still a P tag in here, but it's completely empty.
+  $(".red-box,.blue-box,.gree-box").empty() -  modify the text inside an element, but it's not very flexible.
+  //The only thing you can do is you can completely remove the text, but you're going to learn how to manipulate
+});
+TOPIC:Manipulating Attributes and Properties---------->
+->Another thing you can do is, of course you can set the source value of an image tag to a new value and thereby effectively switching out the image.
+->retrieve and s-et the values of such attributes.
+->There are three different functions here
+  -->attr() -attributes
+  -->prop() -property
+  -->val() -value
+->attr() - that's the attribute function, which is the function with which you can get most of the attributes you want.
+$(function(){
+  var specialLink =$("#special-link"); //this is the id of paragraph
+  console.log(specialLink.attr("href")); //retriving the link that was present in the specified paragraph
+  console.log(specialLink.attr("title")); //if you try to retriving without declaring title it shows "undefined" in console
+  
+  specialLink.attr("href","http://petersommerhoff.com"); //changing the url dynamicall, if you click url in console it takes to petersommer link
+});
+->props() - we use this for checked for checkboxes,selected for select tag,disabled 
+  ->But there are some cases where you don't want to use the attribute function, and I'm going to show you that right now.So there are some Boolean properties in HTML5, like for example, when you add a checkbox to the form
+  ->if you use attribute value it always returns the output as "checked" if we had added that to the HTML code but for prop it return boolean "true" or "false"
+eg:$(function(){
+  va checkbox = $("input:checkbox");
+  console.log(checkbox.prop("checked")); //actual value t/f
+  console.log(checkbox.attr("checked")); //always checked if we write checked in html code
+});
+->Val() - when you want to get the value of a input element, like the input text input, email input, password and so on.
+$(function(){
+   $var textInput=$("input:text");
+   console.log(textInput.val()); //return the value that was set to input text
+   $var rangeinput=$("input:[type='range']");
+   console.log(rangeInput.val()); //return the range set val to input {min=3,max=5, val=7 then o/p:7}
+});
+___________________________________________________________________________________
+TOPIC:Creating an Image SlideShow
+index.html-->
+<div class="gallery">
+  <img src="images.....jpg" alt="">
+</div>
+
+script.js-->
+$(function(){
+  var galleryImage=$(".gallery").find("img").first();
+  var images=["1.jpg","2.jpg","3.jpg",];
+  var i=0;
+  setInterval(function(){
+    i=(i+1)%images.length; //0,1,2,0,1,2.....
+       $(this).attr("src",images[i]);
+       $(this).fadeIn();
+    });
+    console.log(galleryImage.attr("src"));
+  },2000);
+});
+________________________________________________________________
+Changing the CSS properties of elements------->
+$(function(){
+   $(".gallery").csss("display","none");
+   var redbox=$(".red-box");
+   console.log(redbox.css("width"))
+ });
+->JQuery will take care of vendor prefixing like -mos,-webkit...
+_____________________________________________________ 
+TOPIC:Adding and removing the CSS properties
+$(function(){
+   $("a").addClass("fancy-link");
+   $("p:first").addClass("large emphasize");
+   
+   $("li li").addClass(funtion(index){
+     $(this).addClass("item-"+index);
+  });
+$("div").addClass(function(index,currentClass){
+    if(currentClass ==="dummy"){
+       return "red-box";
+   }
+});
+$(."red-box").removeClass("red-box"); //removes the boxes but text remains .Commonly used for replacing b/w classes
+$(."red-box").removeClass("red-box").addClass("blue-box"); //replace redboxes with blue boxes
+});
+____________________________________________________
+TOPIC:Changing the data of an element----------->
+->explains about how you can associate data with an element
+$(function){
+   var gallery=$(".gallery");
+   var images=[
+     "images1.jpg,
+      image2.jpg,
+       image3.jpg"
+   ];
+gallery.data("availableImages",images); //syntax:data(key,arrayname)
+console.log(gallery.css("availableImages"));
+gallery.data()->To acces any data that is associated with the element
+ ->HTML5, you also have data attributes. So let's say on our first paragraph here, you could actually go ahead and associate some data right 
+   inside the HTML code.As long as you prefix that with data dash and then you can use any name you want, like my data, and you just put in some data here.
+   And then what jQuery is going to do is it's going to read all of those attributes here automatically and it's going to save all that data into this associated data object here.
+<p data-mydata="some data here">paragraph</p>
+in js->
+   var firstpar=$("p:first");
+   console.log(firstpar.data("mydata")); o/p:some data here 
+________________________________________________________________
+TOPIC:Retriving and Changeing of Content------>
+-> there are 2 funtions here text(),html()
+->text function will ignore any html on the page 
+->html function handles the html tags on the page
+$(function(){
+   var firstpar=$("p:first");
+   console.log("firstpar.tex()); //only text of para and elements displayed
+   console.log(firstpar.html()); //text along with tags displayed
+   firstpar.text("<strong>m</Strong") //adds the whole data inside""
+   firstpar.html("<strong>m</strong>")//adds data after parsing
+});
+-> Both of them have the common is that both will not display the para tag
+_____________________________________________________________________
+TOPIC:Events and Event Handlers-------->
+->Events are signals that something has happend on the page and those signals are
+  omitted when user performs some kind of action
+-> Event handler is usually bound to a specific event type,like a click
+->We use event handlers because you page becomes more reactive to the user behavior
+  and it can generally enhance the user experience
+TOPIC:Adding Click Handlers--->
+index.html->
+<button id="btn-click">Click</button>
+in .js
+$(function(){
+  $("btn-clicl").click(function(){
+  alert("Button was Clicked");//pop-up
+  $(".red-box").click(function(){
+     $(this).fadeTo(500,0.5);
+  $(".red-box").click()); //to trigger own events
+  });
+});
+});
+TOPIC:Adding Hover Event---->
+button id="btn-hover">Click</button>
+$(function(){
+   $("btn-hover").hover(function(){
+    alert("HOver was fired");
+  });
+});
+TOPIC:Adding Mouse Enters and Mouse Leaving Handlers--->
+
+var bluebox=$(".blue-box");
+bluebox.mouseenter(function(){
+  $(this).fadeTo(500,0.7); //when mouse is in box it fades
+});
+bluebox.mouseleave(function(){
+  $(this).fadeTo(500,0.7); //moves away from blue box it fades 
+}); //after multiple hovers continuously the blue box automatically blinks/fades
+-> to avoid that we use stop() function
+ eg:-$(this).stop().fadeTo(500,0.7);
+
+   or
+//hover(handlerin,handlerout)
+bluebox.hover(function(){$(this).stop().fadeTo(500,0.7)}, 
+              $function()$(this).stop(fadeTo(500,1)});
+});
+TOPIC:Adding the same Handler for multiple times--->
+$(function(){
+   $("html").on("click keydown",function(){
+    console.log("Mouse was clicked or key was pressed."); // increases the count on multiple clicks in console
+});
+});
+
+var images=[
+     "images1.jpg,
+      image2.jpg,
+       image3.jpg"
+   ];
+  var i=0;
+$(".gallery").find("img").on("click",function(){
+  i=(i+1)%images.length;
+  $(this).fadeout(function(){
+  $(this).attr("src",images[i])
+  });
+ });
+});
+TOPIC:Modularising Event Handlers
+->So far throughout this course, I've always used anonymous inner functions, which are these functions right here, 
+ which I just define right inside the call on the click or on or hover our mouse enter function to specify the event handler.
+ So those functions are defined right inside the function call.They have no name and they were not defined previously, 
+ so they're just defined inline inside the actual function call to another function and they don't exist outside of that.
+ Now, for very simple functions, this is okay, but for more sophisticated functions and larger functions
+ which also get more complex, you should modularize those into your own function definitions.
+ And then on the call to, for example, the on function here, you just pass in a reference to that
+ function that was already defined somewhere else.So just like any other JavaScript function, you just define it somewhere and once you have it defined,
+ you can pass that in right here instead of defining a function in place.
+
+$(function(){
+  $("html").on("click keydown",logEvent);
+});
+function logEvent(){
+  console.log("Mouse was clicked or key was passed");
+ }
+TOPIC:Delegated Events--->
+def->Define your event handler on some parent element,which will always be on the page
+     and then that parent elemnt,once that event actually occurs,will then delgate
+eg:$(function(){
+     $("p".click(function(){
+     $(this).slideUp();
+   });
+     $("#content").append("<p>" This is a dynamically added paragraph</p>");
+   //the appended paragraph will not slideup to avoid this missconspirencies delegate handlers are used
+  eg:$("#content").on("click","p",function(){
+     $(this).slideUp();
+    });
+  $("#content").append("<p>" This is a dynamically added paragraph</p>");
+}
+syntax:$("id-name"/"class-name").on("eventhanler","id type",function(){});
+TOPIC:Passing Additional data to events--->
+ -> the user logs in and you want to handle that event by welcoming the user.
+   And for this event, you want to pass in as additional information the name of the user
+$funtion(){
+  $('#btn-click").click({
+   user:"peter"
+  },function(event){
+   greetUser(event.data);
+});
+function greetUser(userdata){
+  username=userdata.USer ||"Ananymous";
+  alert("Welcome"+username+"!");
+ }
+});
+TOPIC:creating image gallery with lightbox preview---->
+$(function(){
+  var galleryItems=$(".gallery").find("img");
+  galleryItems.css("width","33%").css("opacity","0.7");
+  
+  galleryItems.mouseenter(funtion(){
+    $(this).stop().fadeTo(500,1);
+  });
+   galleryItems.mouseleave(funtion(){
+    $(this).stop().fadeIn(500,1);
+  });
+ galleryItems.click(function(){
+  var source =$(this).attr("src");
+  var image=$("<img>"),attr("src",source).css("width",100%);
+  $(",.lightbox").empty().append(image).fadeIn(2000);
+  });
+  $(light-box").click(function){ 
+   $(this).stop().fadeIn(500,1);
+  });
+});
+TOPIC:Handling keyup and keydown events---->
+  ->key down event to lock the event to the console.
+   And in this lecture, we're actually going to go a bit deeper into the key down event.
+   So the key down event fires immediately when the user presses a key on the keyboard.
+   And there's also a key up event which is similar to the mouse up event.
+   So it gets fired when the key is actually released again.
+   But most of the time you want to use the key down function instead because it will just fire immediately
+$(function(){
+  $("html").keydown(function(event){
+   console.log(event.which);//gives the characterACII num of char typed or clicked
+   var Arro_right=39;
+   $("html").keydownfuntion(event){
+     if(event.which==Arro_right){
+        $(blue-box").animate({
+           "margin-left":"+=10px"
+	},50);
+    }
+  });
+});
+_____________________________________________________
+TOPIC:The focus and Blur Events
+->Focus is triggered when you go into a text input, for example, here.
+  And then when you go in there, when you click on it, for example, then it's going to be focused.
+  And when you press tab or go into another text input, then it's going to be blurred.
+$(function(){
+   var inputfields=$("input:text,input:password,textarea");
+   inputFields.focus(function(){
+    $(this).css("box-shadow","0 0 4px #666"); //on clicking box-shadow appears around the box
+  });
+  inputFields.blur(function(){
+    $(this).css("box-shadow","0 0 4px #666"); //after clicking another input box it blurr prev
+   $("#name").blurr(function(){
+      var text=$(this).val();
+      if(text.length<3){
+        $(this).css("box-shadow","0 0 4px #811"); //less than 3char in txtinput then red
+      }else{
+       $(this).css("box-shadow","0 0 4px #811"); //more than 3 then green
+     }
+  });
+TOPIC:Change Events--->
+->the change event is especially useful for checkboxes, radio buttons and select elements.
+$(function(){
+  $("#checkbox").change(function(){
+     var isChecked =$(this).is(":checked");
+     if(isChecked){
+        $(this).add("label[for='cb']").css("box-shadow","0 0 4px #181");
+      }
+     else{
+  	$(this).add("label[for='cb']"0.css("box-shadow","0 0 4px #811");
+    }
+  });
+  $("#selection").change(function(){
+    var selectedoption=$(this).find(":selected");
+   });
+});
+
+imp:TOPIC HAndling the Submit Event--->
+
+$(function(){
+   $("#form").submit(funtion(event){
+  var textarea=$("#message");
+  if (textarea.val().trim()==""){ //if txtbox is empty
+    textarea.css("box-shadow","0 0 4px #181"); //change txtbox colr
+    event.preventDefault();//stops default event from executing
+  }else{
+    //form submits
+}
+});
+TOPIC:Complete Form Validatio while submitting the form
+$(function(){
+   $("#form").submit(function(){
+     var name=$("#name").val();
+     var passw=$("#password").val();
+     var msg=$("#message").val();
+     var checked=$("#checkbox").is(":checked");
+   validateNameField(name,event);
+   validatePasswordField(passwd,event);
+   validateMessageField(msg,event);
+   validateCheckboxField(checked,event);
+  
+  });
+});
+function validateNameField(name,event){
+  if(!isValidName(name){
+   $("#name-feedback").text("please enter at leaset t characters");
+  }else{
+   $('#name-feedback").text("");
+   }
+}
+function ValidatePassworField(password,event){
+  if(!isvalidpassword(password)){
+    $("#password-feedback").text("The password shoul have 6 chars");
+ }else{
+    $("#name-feedback").text("");
+ }
+}
+function validateMessageField(message,event){
+   if(!isvalidMessage(message)){
+      $("#message-feedback").text("please  enter a message");
+      event.preventDefault();
+   }
+else{
+$("#message-feedback").text("");
+}
+}
+funtion validatecheckboxField(ischecke,event){
+   if(!ischecked){
+       $("#message-feedback").text("please agree to this");
+    event.preventDefault();
+   }
+else{
+$("#message-feedback").text("");
+}
+}
+function isValidName(name){
+   return name.length>2;
+}
+
+function isvalidpassword(password){
+  return password.length>=6 && /.*[0-9].*/.test(password);
+}
+function isvalidMessage(message){
+  return message.trim()!="";
+}
+TOPIC:Fast Feedback form---->
+$(function(){
+   $("#form").submit(function(){
+     var name=$("#name").val();
+     var passw=$("#password").val();
+     var msg=$("#message").val();
+     var checked=$("#checkbox").is(":checked");
+   validateNameField(name,event);
+   validatePasswordField(passwd,event);
+   validateMessageField(msg,event);
+   validateCheckboxField(checked,event);
+  
+  });
+});
+function enableFastFeedback(formElement){
+  var nameInput =formElement.find("#name");
+  var passwordInput =formElement.find("#password");
+  var messageInput =formElement.find("#message");
+  var checkboxInput =formElement.find(checkbox");
+   
+nameInput.blur(function(event){
+  var name=$(this).val();
+  validateNameField(name,event);
+
+  if(!isvalidName(name)){
+    $(this).css({"box-shadow":"0 0 4px #811","border":"1px solid #600"});
+   }else{
+    $(this).css({"box-shadow":"0 0 4px #181","border":"1px solid #600"});
+  }
+});
+}
+passwordInput.blur(function(event){
+  var password=$(this).val();
+  validatePasswordField(password,event);
+
+  if(!isvalidPassword(password)){
+    $(this).css({"box-shadow":"0 0 4px #811","border":"1px solid #600"});
+   }else{
+    $(this).css({"box-shadow":"0 0 4px #181","border":"1px solid #600"});
+  }
+});
+}
+messageInput.blur(function(event){
+  var message=$(this).val();
+  validateMessageField(message,event);
+
+  if(!isvalidmessage(message)){
+    $(this).css({"box-shadow":"0 0 4px #811","border":"1px solid #600"});
+   }else{
+    $(this).css({"box-shadow":"0 0 4px #181","border":"1px solid #600"});
+  }
+});
+}
+checkboxInput.change(function(event){
+  var ischecked=$(this).prop/is(":checked");
+  validatecheckboxField(name,event);
+
+  if(!isChecked(checkbox)){
+    $(this).add({"label['for='cb']"):"0 0 4px #811","border":"1px solid #600"});
+   }else{
+    $(this).css({"box-shadow":"0 0 4px #181","border":"1px solid #600"});
+  }
+});
+}
+function isValidName(name){
+   return name.length>2;
+}
+
+function isvalidpassword(password){
+  return password.length>=6 && /.*[0-9].*/.test(password);
+}
+function isvalidMessage(message){
+  return message.trim()!="";
+}
+funtion validatecheckboxField(ischecke,event){
+   if(!ischecked){
+       $("#message-feedback").text("please agree to this");
+    event.preventDefault();
+   }
+else{
+$("#message-feedback").text("");
+}
+}
